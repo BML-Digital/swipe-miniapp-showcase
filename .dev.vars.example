@@ -1,0 +1,7 @@
+# Secrets used only by the Worker. Never copy this file into miniapp/.
+MERCHANT_CLIENT_ID=
+MERCHANT_CLIENT_SECRET=
+MERCHANT_JWKS_URL=https://gateway.swipe.mv/miniapps/public/.well-known/jwks.json
+APP_ID=replace-with-platform-generated-app-id
+PAYEE_VPA=replace-with-registered-payee-vpa
+ALLOWED_ORIGIN=https://exact-miniapp-bundle-origin.example

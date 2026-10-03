@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "swipe-miniapp-showcase",
+  "main": "worker/src/index.ts",
+  "compatibility_date": "2026-08-23",
+  "d1_databases": [{ "binding": "DB", "database_name": "swipe-miniapp-showcase", "database_id": "00000000-0000-0000-0000-000000000000" }]
+}

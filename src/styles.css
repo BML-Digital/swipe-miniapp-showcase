@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "Inter Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("@fontsource-variable/inter/files/inter-latin-wght-normal.woff2")
+    format("woff2-variations");
+}
+@theme {
+  --color-brand-50: #f7f3ff;
+  --color-brand-100: #eee7ff;
+  --color-brand-200: #ded0ff;
+  --color-brand-500: #7655dc;
+  --color-brand-700: #5d3fc8;
+  --font-sans: "Inter Variable", Inter, system-ui, sans-serif;
+}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: #f7f3ff;
+    color: #17151c;
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+  button,
+  a {
+    touch-action: manipulation;
+  }
+}
+@utility safe-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+.font-black {
+  font-weight: 700;
+}
+.font-bold {
+  font-weight: 600;
+}
+.success-mark {
+  position: relative;
+  display: grid;
+  width: 7rem;
+  height: 7rem;
+  place-items: center;
+  border-radius: 9999px;
+  background: #5d3fc8;
+  color: white;
+  box-shadow: 0 0 0 12px #eee7ff;
+  animation: success-pop 0.55s cubic-bezier(0.2, 0.9, 0.2, 1.2) both;
+}
+.success-mark > svg {
+  animation: success-check 0.45s 0.25s ease-out both;
+}
+@keyframes success-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes success-check {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-12deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+.page-enter {
+  animation: page-in 0.28s ease-out both;
+}
+.product-enter {
+  animation: card-in 0.42s ease-out both;
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.dialog-overlay[data-state="open"] {
+  animation: fade-in 0.2s ease-out;
+}
+.dialog-sheet[data-state="open"] {
+  animation: sheet-in 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-enter,
+  .product-enter,
+  .success-mark,
+  .success-mark > svg,
+  .dialog-overlay,
+  .dialog-sheet {
+    animation: none !important;
+  }
+}
+.hero-arc {
+  border-radius: 0 0 50% 50%/0 0 1.65rem 1.65rem;
+}
+@media (min-width: 48rem) {
+  .hero-arc {
+    border-radius: 0 0 3rem 3rem;
+  }
+}
